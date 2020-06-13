@@ -48,7 +48,6 @@
                         </li>";
                     }
                 ?>
-                
             </ul>
             <div class="form-inline my-2 my-lg-0">
                 <a href="<?php echo "../controllers/LogOut.php" ?>" class="btn btn-info p-2"><i class="fas fa-sign-out-alt"></i>Déconnexion</a>
@@ -105,8 +104,6 @@
             </div>
         </div>
     </div>
-
-
 <!-- ------------------------------------------------------------------------------------ -->
     <?php    
 
@@ -142,42 +139,34 @@
                     </div>
                     <div class="card-body">
 
-                        
                         <h6><strong>Ville De Départ : </strong>' . $vol["pays_depart"] .'</h6>
                         <h6><strong>Ville d arrive : </strong>' . $vol["pays_arrive"] .'</h6>
                         <h6><strong>Date De VOL : </strong>' . $vol["date_vol"] .'</h6>
-                        
 
-                        
                         <div class="accordion mb-3 mt-2" id="accordionExample">
                             <div class="card">
-                                <div class="card-header" id="headingOne" style="padding: 6px;">
-                                    
-                                        
-                                        <button type="button" class="btn btn-sm btn-outline-secondary btn-block" data-toggle="collapse" data-target="#collapse'.$colapsContur.'" aria-expanded="false" aria-controls="collapseOne">Mor Detaills</button>
-                                    
+                                <div class="card-header" id="headingOne" style="padding: 6px;"> 
+                                    <button type="button" class="btn btn-sm btn-outline-secondary btn-block" data-toggle="collapse" data-target="#collapse'.$colapsContur.'" aria-expanded="false" aria-controls="collapseOne">Mor Detaills</button>
                                 </div>
 
                                 <div id="collapse'.$colapsContur.'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
 
-                                    <h6><strong>Hour : </strong>' . $vol["hour_vol"] .'h,' . $vol["minute_vol"] .'min</h6>
-                                    <h6><strong>Nombre De Plasse : </strong>' . $vol["nb_place_initial"] .'</h6>
-                                    <h6><strong>Nombre De Reste : </strong>' . $vol["nb_place_rest"] .'</h6>
-                                    <h6><strong>Price : </strong>' . $vol["price"] .'</h6>
-                                    <h6><strong>ID Voll : </strong>' . $vol["id_vol"] .'</h6>
+                                        <h6><strong>Hour : </strong>' . $vol["hour_vol"] .'h,' . $vol["minute_vol"] .'min</h6>
+                                        <h6><strong>Nombre De Plasse : </strong>' . $vol["nb_place_initial"] .'</h6>
+                                        <h6><strong>Nombre De Reste : </strong>' . $vol["nb_place_rest"] .'</h6>
+                                        <h6><strong>Price : </strong>' . $vol["price"] .'</h6>
+                                        <h6><strong>ID Voll : </strong>' . $vol["id_vol"] .'</h6>
 
-                                    <h6><strong>ID ADMIN CREER : </strong>' . $vol["id_admin_created"] .'</h6>
-                                    
-                                    
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View Detelc Client</button>
-                                            
+                                        <h6><strong>ID ADMIN CREER : </strong>' . $vol["id_admin_created"] .'</h6>
+
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-sm btn-outline-secondary">View Detelc Client</button>
+                                            </div>
+
                                         </div>
-
-                                    </div>
-
 
                                     </div>
                                 </div>
@@ -197,9 +186,7 @@
                             </div>
                             <small class="text-muted mb-2">Pubblier Le :'. $vol["date_created"] .'</small>
                         </div>
-                        
 
-                        
                         <form method="POST" class="mr-1" action="reserve.php" >
                             <input type="hidden" name="id" value='.$vol["id_vol"].'>
                             <button class="btn btn-outline-success btn-lg btn-block" ><i class="fa fa-edit" ></i>Button ReserveEE2</button>

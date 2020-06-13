@@ -29,7 +29,7 @@ if(!isset($_SESSION)){
                     );
                     $result	= Passager::add($data);
                     if($result === 'ok exist'){
-
+                        
                         $_SESSION['id_passager'] = 0;
                         $cin_user =$_POST['cin_passager'];
                         $id_user_creat = $_SESSION['idUser'];

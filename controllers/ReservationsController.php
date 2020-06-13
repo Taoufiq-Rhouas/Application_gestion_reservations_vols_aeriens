@@ -19,13 +19,11 @@ if(!isset($_SESSION)){
 
                     $_SESSION['id_passagerexist'] = 0;
                     $cin_user = $_SESSION['cin'];
-
                     $id_user_creat = $_SESSION['idUser'];
                     $stmt2 = DB::connect()->prepare("SELECT * FROM passager WHERE  passager.cin_passager = '{$cin_user}' AND passager.id_user_created = '{$id_user_creat}'");
                     $stmt2 ->execute();
                     if($stmt2->rowCount() > 0){
                         while($row = $stmt2->fetch(PDO::FETCH_ASSOC)){
-
                             $_SESSION['id_passagerexist'] = $row["id_passager"];
                         }
                     }
@@ -38,11 +36,9 @@ if(!isset($_SESSION)){
                     if($result === 'ok'){
                         
                         if($_SESSION['statut'] === 'Admin'){
-                            
                             Session::set('success','Reservation2 Ajoute');
                             Redirect::to('admin');
                         }else if($_SESSION['statut'] === 'User'){
-
                             Session::set('success','Reservation2 Ajoute');
                             Redirect::to('client');
                         }
@@ -51,7 +47,6 @@ if(!isset($_SESSION)){
                     }
 
                 }else if ($_SESSION['typrReservation'] == 2){
-                    // hna khedam
                     $newPassager = new PassageresController();
                     $newPassager->addPassager();
                     $passager_if_exist = 0;
@@ -84,7 +79,6 @@ if(!isset($_SESSION)){
                             Redirect::to('client');
                         }
                         
-                        
                     }else if( $passager_if_exist  === 'not_exist'  ){
 
                         $_SESSION['id_passager'] = 0;
@@ -112,13 +106,10 @@ if(!isset($_SESSION)){
                             Session::set('success','Réservation pour autre personne enregistré avec succès /N° De Passager : '.$_SESSION['id_passager']);
                             Redirect::to('client');
                         }
-                        
-                        
                     }
 
                     
                 }else if ($_SESSION['typrReservation'] == 3){
-
 
                     $newPassager = new PassageresController();
                     $newPassager->addPassager();

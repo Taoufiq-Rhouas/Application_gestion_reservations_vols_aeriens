@@ -427,6 +427,10 @@
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
+                                                    <form method="POST" action="update_Voll.php" >
+                                                        <input type="hidden" name="id" value='. $row['id_vol'].'>
+                                                        <button class="btn btn-lg btn-outline-warning  mb-2" ><i class="fa fa-edit" ></i> Edit</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center">

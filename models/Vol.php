@@ -11,7 +11,6 @@
 		static public function getquery($query){
 			$stmt = DB::connect()->prepare('SELECT * FROM `vols` WHERE '.$query.' ');
 			$stmt ->execute();
-			// fetchAll() bach nrecupere colchi
 			return $stmt->fetchAll();
 			$stmt->close();
 			$stmt = null;
@@ -35,7 +34,6 @@
 
 		static public function add($data){
 			$stmt = DB::connect()->prepare('INSERT INTO vols (nam,price,image,pays_depart,pays_arrive,date_vol,hour_vol,minute_vol,nb_place_initial,nb_place_rest,statu_vol,id_admin_created) VALUES(:nam,:price,:image,:pays_depart,:pays_arrive,:date_vol,:hour_vol,:minute_vol,:nb_place_initial,:nb_place_initial,:statu_vol,:id_admin_created)');
-			// bach kanrbet mabin les parametre el les donne dyalhom
 			$stmt->bindParam(':nam',$data['nam']);
 			$stmt->bindParam(':price',$data['price']);
 			$stmt->bindParam(':image',$data['image']);
@@ -43,7 +41,6 @@
 			$stmt->bindParam(':pays_arrive',$data['pays_arrive']);
 			$stmt->bindParam(':date_vol',$data['date_vol']);
 			$stmt->bindParam(':hour_vol',$data['hour_vol']);
-
 			$stmt->bindParam(':minute_vol',$data['minute_vol']);
 			$stmt->bindParam(':nb_place_initial',$data['nb_place_initial']);
 			$stmt->bindParam(':nb_place_rest',$data['nb_place_initial']);
@@ -61,7 +58,6 @@
 
 		static public function update($data){
 			$stmt = DB::connect()->prepare('UPDATE vols SET nam = :nam,pays_depart = :pays_depart,pays_arrive = :pays_arrive,date_vol = :date_vol,hour_vol = :hour_vol,minute_vol = :minute_vol,nb_place_initial = :nb_place_initial,price = :price,image = :image WHERE id_vol = :id_vol');
-			// bach kanrbet mabin les parametre el les donne dyalhom
 			$stmt->bindParam(':id_vol',$data['id_vol']);
 			$stmt->bindParam(':nam',$data['nam']);
 			$stmt->bindParam(':pays_depart',$data['pays_depart']);
@@ -74,7 +70,6 @@
 			$stmt->bindParam(':image',$data['image']);
 			// die(print_r($data));
 			if($stmt->execute()) {
-				// hena khedmet lcontroler
 				return 'ok';
 			}else{
 				return 'error';
@@ -93,7 +88,6 @@
 
             $stmt = DB::connect()->prepare("SELECT * FROM `vols` WHERE `date_vol` > '{$dateMoins1}' AND `statu_vol` = 'active' AND nb_place_rest > 0  ORDER BY `vols`.`id_vol` DESC");
 			$stmt ->execute();
-			// fetchAll() bach nrecupere colchi
 			return $stmt->fetchAll();
 			$stmt->close();
 			$stmt = null;
@@ -211,8 +205,6 @@
 			return  $result;
 				
 		}
-		
-
 	}
 
 ?>

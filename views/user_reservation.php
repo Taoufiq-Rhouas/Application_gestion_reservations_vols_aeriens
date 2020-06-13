@@ -18,52 +18,52 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<section class="p-5 m-5">
-    <div class="continer p-5">
-        <div id="historique">
-            <h1 class="title">Historique des commandes</h1>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Date reservation</th>
-                        <th scope="col">Détails</th>
-                        <th scope="col">For ?</th>
-                    </tr>
-                </thead>
+    <section class="p-5 m-5">
+        <div class="continer p-5">
+            <div id="historique">
+                <h1 class="title">Historique des commandes</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Date reservation</th>
+                            <th scope="col">Détails</th>
+                            <th scope="col">For ?</th>
+                        </tr>
+                    </thead>
 
-                <?php
-                $info = new Reservation();
-                $res = $info -> reservation_join();
-                ?>
-                <tbody>
-                    <tr>
-                        <?php foreach ($res as $row):?>
-                        <td><?= $row['id_reservation']; ?></td>
-                        <td><?= $row['date_reservation']; ?></td>
-                        <td>
-                            <?php
-                                if($row['cin_passager'] === $_SESSION['cin']){
-                                    echo "you";
-                                }else{
-                                    echo "howa";
-                                }
-                            ?>
-                        </td>
-                        <td>
-                            <input type="button" name="view" value="Détails" id="<?= $row['id_reservation']; ?>"
-                                class="btn btn-info btn-xs view_data">
-                        </td>
-                    </tr>
-                    <?php endforeach;?>
-                </tbody>
-                
-            </table>
-            <div>
+                    <?php
+                    $info = new Reservation();
+                    $res = $info -> reservation_join();
+                    ?>
+                    <tbody>
+                        <tr>
+                            <?php foreach ($res as $row):?>
+                            <td><?= $row['id_reservation']; ?></td>
+                            <td><?= $row['date_reservation']; ?></td>
+                            <td>
+                                <?php
+                                    if($row['cin_passager'] === $_SESSION['cin']){
+                                        echo "you";
+                                    }else{
+                                        echo "howa";
+                                    }
+                                ?>
+                            </td>
+                            <td>
+                                <input type="button" name="view" value="Détails" id="<?= $row['id_reservation']; ?>"
+                                    class="btn btn-info btn-xs view_data">
+                            </td>
+                        </tr>
+                        <?php endforeach;?>
+                    </tbody>
+                    
+                </table>
+                <div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -84,9 +84,9 @@
             </div>
         </div>
     </div>
-<?php echo "wolcom user_reservation"; ?>
+    <?php echo "wolcom user_reservation"; ?>
 
-<script>
+    <script>
         $(document).ready(function () {
             $('.view_data').click(function () {
                 var rid = $(this).attr("id");

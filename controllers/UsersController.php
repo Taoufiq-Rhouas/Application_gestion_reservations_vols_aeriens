@@ -4,6 +4,7 @@ include_once('../app/classes/Session.php');
 include_once('../app/classes/Redirect.php');
 include_once('../models/User.php');
 include_once('../models/Passager.php');
+
 	class UsersController{
 		
 		public function getAllUser(){
@@ -13,7 +14,6 @@ include_once('../models/Passager.php');
 		}
 
 		public function getOneUserInId(){
-			// hadi li radi tretunrni rmployr
 			if (isset($_POST['id'])) {
 				$data = array(
 					'id' => $_POST['id']
@@ -23,9 +23,7 @@ include_once('../models/Passager.php');
 			}
 		}
 
-
 		public function loginUser(){
-			// hadi li radi tretunrni rmployr
 			if (isset($_POST['email'],$_POST['password'])) {
 				$data = array(
 					'email' => $_POST['email'],
@@ -36,19 +34,6 @@ include_once('../models/Passager.php');
 			}
 		}
 
-
-
-		// public function getOneUser(){
-		// 	// hadi li radi tretunrni rmployr
-		// 	if (isset($_POST['email'])) {
-		// 		$data = array(
-		// 			'email' => $_POST['email'],
-		// 			// 'password' => $_POST['password'],
-		// 		);
-		// 		$user = User::getUser($data);
-		// 		return $user;
-		// 	}
-		// }
 
 		public function addUser(){
 			if(isset($_POST['submit'])){
@@ -70,22 +55,7 @@ include_once('../models/Passager.php');
 				}			
 			}
 		}
-		// public function loginUser(){
-		// 	if(isset($_POST['submit'])){
-		// 		$data = array(
-		// 			'email' => $_POST['email'],
-		// 			'password' => $_POST['password'],
-		// 		);
-		// 		$result	= User::login($data);
-		// 		if($result === 'ok'){
-		// 			// header('location:'.BASE_URL);
-		// 			Session::set('success','Wolcom User Ajoute');
-		// 			Redirect::to('accueil');
-		// 		}else{
-		// 			echo $result;
-		// 		}			
-		// 	}
-		// }
+		
 
 		// -----------khedaaam hnaa---------------
 
@@ -190,90 +160,6 @@ include_once('../models/Passager.php');
 			}
 		}
 
-
-
-
-
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 		public function updateCinUser(){
 			if(isset($_POST['submit'])){
 				$data = array(
@@ -290,7 +176,7 @@ include_once('../models/Passager.php');
 				$result	= User::updateCin($data);
 				if($result === 'ok'){
 					// header('location:'.BASE_URL);
-					Session::set('success','User modifie');
+					Session::set('success','User modifie avec succès');
 					// Redirect::to('home');
 				}else{
 					echo $result;
@@ -313,27 +199,13 @@ include_once('../models/Passager.php');
 				$result	= User::updateCin($data);
 				if($result === 'ok'){
 					// header('location:'.BASE_URL);
-					Session::set('success','User modifie');
+					Session::set('success','User modifie avec succès');
 					// Redirect::to('home');
 				}else{
 					echo $result;
 				}			
 			}
 		}
-		// public function deleteEmploye(){
-		// 	if(isset($_POST['id'])){
-		// 		$data['id'] = $_POST['id'];
-		// 		$result = Employe::delete($data);
-		// 		if ($result === 'ok') {
-		// 			// header('location:'.BASE_URL);
-		// 			Session::set('success','Employe supprime');
-		// 			Redirect::to('home');
-		// 		}else{
-		// 			echo $result;
-		// 		}
-		// 	}
-		// }
-		
 	}
 
 ?>

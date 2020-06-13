@@ -10,14 +10,7 @@ include_once('../models/Vol.php');
 	$id_admin_created = $_SESSION['idUser'];
 
 	class VolsController{
-		
-		// public function getAllEmployes(){
-		// 	// models
-		// 	$employes = Employe::getAll();
-		// 	return $employes;
-        // }
         
-
         public function getVolsquery($query){
 			// models
 			$vols = Vol::getquery($query);
@@ -42,29 +35,6 @@ include_once('../models/Vol.php');
 			}
 		}
 
-		// public function addEmploye(){
-		// 	if(isset($_POST['submit'])){
-		// 		$data = array(
-		// 			'nom' => $_POST['nom'],
-		// 			'prenom' => $_POST['prenom'],
-		// 			'matricule' => $_POST['mat'],
-		// 			'depart' => $_POST['depart'],
-		// 			'poste' => $_POST['poste'],
-		// 			'date_emb' => $_POST['date_emb'],
-		// 			'statut' => $_POST['statut'],
-		// 		);
-		// 		$result	= Employe::add($data);
-		// 		if($result === 'ok'){
-		// 			// header('location:'.BASE_URL);
-		// 			Session::set('success','Employe Ajoute');
-		// 			Redirect::to('home');
-		// 		}else{
-		// 			echo $result;
-		// 		}			
-		// 	}
-		// }
-
-
 		public function addVol(){
 			if(isset($_POST['submit'])){
 				$data = array(
@@ -85,7 +55,7 @@ include_once('../models/Vol.php');
 				$result	= Vol::add($data);
 				if($result === 'ok'){
 					// header('location:'.BASE_URL);
-					Session::set('success','Vol Ajoute');
+					Session::set('success','Vol Ajoute avec succès');
 					Redirect::to('admin');
 				}else{
 					echo $result;
@@ -111,56 +81,15 @@ include_once('../models/Vol.php');
 				$result	= Vol::update($data);
 				if($result === 'ok'){
 					// header('location:'.BASE_URL);
-					Session::set('success','Vol modifie');
+					Session::set('success','Vol modifie avec succès');
 					Redirect::to('gestion_vol');
 				}else{
 					echo $result;
 				}			
 			}
 		}
-		// public function deleteEmploye(){
-		// 	if(isset($_POST['id'])){
-		// 		$data['id'] = $_POST['id'];
-		// 		$result = Employe::delete($data);
-		// 		if ($result === 'ok') {
-		// 			// header('location:'.BASE_URL);
-		// 			Session::set('success','Employe supprime');
-		// 			Redirect::to('home');
-		// 		}else{
-		// 			echo $result;
-		// 		}
-		// 	}
-		// }
-
-		// public function deleteEmploye(){
-		// 	if(isset($_POST['id'])){
-		// 		$data['id'] = $_POST['id'];
-		// 		$result = Employe::delete($data);
-		// 		if ($result === 'ok') {
-		// 			// header('location:'.BASE_URL);
-		// 			Session::set('success','Employe supprime');
-		// 			Redirect::to('home');
-		// 		}else{
-		// 			echo $result;
-		// 		}
-		// 	}
-		// }
-
-
-		// public function getOneEmploye(){
-		// 	// hadi li radi tretunrni rmployr
-		// 	if (isset($_POST['id'])) {
-		// 		$data = array(
-		// 			'id' => $_POST['id']
-		// 		);
-		// 		$employe = Employe::getEmploye($data);
-		// 		return $employe;
-		// 	}
-		// }
-
 
 		public function getVolRecherch(){
-			// hadi li radi tretunrni rmployr   
 			// if (isset($_POST['vilDepart'],$_POST['vilArive'])) {
 			// 	$data = array(
 			// 		'vilDepart' => $_POST['vilDepart'],
@@ -181,7 +110,7 @@ include_once('../models/Vol.php');
 				$result = Vol::annuler($data);
 				if ($result === 'ok') {
 					// header('location:'.BASE_URL);
-					Session::set('info','Vol annuler');
+					Session::set('info','Vol annuler avec succès');
 					Redirect::to('gestion_vol');
 				}else{
 					echo $result;
@@ -195,54 +124,13 @@ include_once('../models/Vol.php');
 				$result = Vol::active($data);
 				if ($result === 'ok') {
 					// header('location:'.BASE_URL);
-					Session::set('success','Vol activer');
+					Session::set('success','Vol activer avec succès');
 					Redirect::to('gestion_vol');
 				}else{
 					echo $result;
 				}
 			}
 		}
-
-		// public function nombreVolMoins1(){
-		// 	$data2 = array(
-		// 		// 'id_passager' => $_SESSION['id_passagerexist'] ,
-		// 		'id_vol' => $_SESSION['id_voll'],
-		// 	);
-		// 	$result	= Vol::volMoins1($data2);
-
-
-
-		// 	// if(isset($_POST['id_vol'])){
-		// 	// 	$data['id_vol'] = $_POST['id_vol'];
-		// 	// 	$result = Vol::updateVolMoins1($data);
-		// 	// 	if ($result === 'ok') {
-		// 	// 		// header('location:'.BASE_URL);
-		// 	// 		Session::set('success','Employe supprime');
-		// 	// 		Redirect::to('home');
-		// 	// 	}else{
-		// 	// 		echo $result;
-		// 	// 	}
-		// 	// }
-		// }
-
-		// function vol_show_id($id) {
-
-		// 	// $query = "SELECT * from vols where id_vol='$id'";
-		// 	// $stmt = $this->conn->prepare($query);
-		// 	// $stmt->execute();
-		// 	// $result = $stmt->get_result();
-		// 	// return  $result;
-
-
-
-		// 	$stmt = DB::connect()->prepare("SELECT * from vols where id_vol='$id'");
-		// 	$stmt ->execute();
-		// 	// fetchAll() bach nrecupere colchi
-		// 	return $stmt->fetchAll();
-		// 	$stmt->close();
-		// 	$stmt = null;
-				
-		// }
 
 		public function getAllVolsActiveForAdmin(){
 			// models
@@ -259,11 +147,6 @@ include_once('../models/Vol.php');
 			$Allvols = Vol::getAllVolsForAdmin();
 			return $Allvols;
 		}
-		// public function getAllVolsActiveForAdmin(){
-		// 	// models
-		// 	$vols = Vol::getAllActiveForAdmin();
-		// 	return $vols;
-		// }
 		
 	}
 
