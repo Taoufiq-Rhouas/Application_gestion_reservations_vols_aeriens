@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 13 juin 2020 à 14:40
+-- Généré le : mar. 16 juin 2020 à 06:32
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.5
 
@@ -49,7 +49,8 @@ INSERT INTO `passager` (`id_passager`, `nom_passager`, `prenom_passager`, `date_
 (2, 'yassine', 'br', '2000-03-16', 634566786, 'ya@gmail.com', 'CIN_1YASSSINE', 'NUMPASSPORT1YASSINE', '2020-06-07 18:39:04', 3),
 (3, 'oussaama', 'mohamed', '2002-02-14', 622668822, 'oussaama@gmail.com', 'CIN_1OUSSAMA', 'NUMPASSPORT1OUSSAMA', '2020-06-07 19:52:19', 6),
 (4, 'ayoub', 'rafif', '2020-06-06', 999999999, 'fafif@gmail.com', 'CIN_1RAFIF', 'NUMPASSPORT1RAFIF', '2020-06-08 19:35:16', 7),
-(5, 'ayoub', 'rafif', '2020-06-26', 0, 'fafif@gmail.com', 'CIN_1RAFIF', 'NUMPASSPORT1RAFIF', '2020-06-13 11:42:27', 7);
+(5, 'ayoub', 'rafif', '2020-06-26', 0, 'fafif@gmail.com', 'CIN_1RAFIF', 'NUMPASSPORT1RAFIF', '2020-06-13 11:42:27', 7),
+(6, 'Admin', 'Admin', '2020-06-25', 0, 'admin@gmail.com', 'CIN_ADMIN', 'NUMPASSPORT1ADMIN', '2020-06-15 12:13:36', 2);
 
 -- --------------------------------------------------------
 
@@ -73,7 +74,8 @@ INSERT INTO `reservations` (`id_reservation`, `id_vol`, `id_passager`, `date_res
 (2, 2, 2, '2020-06-07 18:39:04'),
 (3, 2, 3, '2020-06-07 19:52:19'),
 (4, 2, 4, '2020-06-08 19:35:16'),
-(5, 1, 5, '2020-06-13 11:42:27');
+(5, 1, 5, '2020-06-13 11:42:27'),
+(6, 4, 6, '2020-06-15 12:13:36');
 
 -- --------------------------------------------------------
 
@@ -102,7 +104,8 @@ INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `statut`, `cin`)
 (4, 'Ahmed', 'MOHAMED', 'ahmed@gmail.com', 'ahmed123', 'User', '_'),
 (5, 'hamza', 'boud', 'hamza@gmail.com', 'hamza123', 'User', '_'),
 (6, 'oussaama', 'mohamed', 'oussaama@gmail.com', 'oussama123', 'User', '_'),
-(7, 'ayoub', 'rafif', 'fafif@gmail.com', '123', 'User', '_');
+(7, 'ayoub', 'rafif', 'fafif@gmail.com', '123', 'User', '_'),
+(8, 'meryem', 'meryem', 'meryem@gmail.com', '123', 'User', '_');
 
 -- --------------------------------------------------------
 
@@ -135,7 +138,8 @@ INSERT INTO `vols` (`id_vol`, `nam`, `price`, `image`, `date_created`, `pays_dep
 (1, 'Voyage en famille', 15000, 'vol.jpg', '2020-06-13 11:42:27', 'safi', 'paris', '2020-06-26', 8, 12, 10, 8, 'active', 2),
 (2, 'Voyage de travel', 40000, 'vol.jpg', '2020-06-08 19:35:16', 'madrid', 'marakech', '2020-08-30', 6, 44, 20, 9, 'active', 2),
 (3, 'Voyage en famille', 10, 'vol.jpg', '2020-06-08 19:41:41', 'maroc', 'madrid', '2020-07-12', 4, 2, 40, 40, 'active', 2),
-(4, 'Voyage en famille', 10000, 'vol.jpg', '2020-06-13 12:37:58', 'holanda', 'canada', '2020-06-20', 2, 4, 20, 20, 'active', 2);
+(4, 'Voyage en famille', 10000, 'vol.jpg', '2020-06-15 12:13:36', 'holanda', 'canada', '2020-06-20', 2, 4, 20, 19, 'active', 2),
+(5, 'Voyage en famille', 4000, 'vol.jpg', '2020-06-15 12:23:30', 'canadaa', 'marocv', '2020-07-10', 10, 18, 60, 60, 'active', 2);
 
 --
 -- Index pour les tables déchargées
@@ -177,25 +181,25 @@ ALTER TABLE `vols`
 -- AUTO_INCREMENT pour la table `passager`
 --
 ALTER TABLE `passager`
-  MODIFY `id_passager` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_passager` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id_reservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_reservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `vols`
 --
 ALTER TABLE `vols`
-  MODIFY `id_vol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_vol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Contraintes pour les tables déchargées

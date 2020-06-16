@@ -6,7 +6,7 @@ include_once('../database/DB.php');
 			$this->conn = new mysqli("localhost","root","","db_app_vol_aeriens");
 		}
 
-        static public function add($data){
+        function add($data){
 			$stmt = DB::connect()->prepare('INSERT INTO reservations (id_vol,id_passager) VALUES(:id_vol,:id_passager)');
 			$stmt->bindParam(':id_vol',$data['id_vol']);
 			$stmt->bindParam(':id_passager',$data['id_passager']);
